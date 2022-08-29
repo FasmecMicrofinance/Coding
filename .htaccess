@@ -1,0 +1,40 @@
+Options -Indexes 
+DirectoryIndex  index.php
+
+AddDefaultCharset UTF-8
+RewriteEngine on
+
+RewriteRule ^([a-zA-Z]{2})$ index.php?lang=$1 [QSA]
+RewriteRule ^([a-zA-Z]{2})/$ index.php?lang=$1 [QSA]
+
+RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?p=$1 [QSA]
+RewriteRule ^([a-zA-Z0-9_-]+)/$ index.php?p=$1 [QSA]
+
+RewriteRule ^([a-zA-Z]{2}+)/([a-zA-Z0-9_-]+)$ index.php?lang=$1&p=$2 [QSA]
+RewriteRule ^([a-zA-Z]{2}+)/([a-zA-Z0-9_-]+)/$ index.php?lang=$1&p=$2 [QSA]
+
+RewriteRule ^([a-zA-Z0-9_-]+)/page-([0-9]+)$ index.php?p=$1&pag=$2 [QSA]
+RewriteRule ^([a-zA-Z0-9_-]+)/page-([0-9]+)/$ index.php?p=$1&pag=$2 [QSA]
+
+RewriteRule ^([a-zA-Z]{2}+)/([a-zA-Z0-9_-]+)/page-([0-9]+)$ index.php?lang=$1&p=$2&pag=$3 [QSA]
+RewriteRule ^([a-zA-Z]{2}+)/([a-zA-Z0-9_-]+)/page-([0-9]+)/$ index.php?lang=$1&p=$2&pag=$3 [QSA]
+
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?p=$1&id=$2 [QSA]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ index.php?p=$1&id=$2 [QSA]
+
+RewriteRule ^([a-zA-Z]{2}+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?lang=$1&p=$2&id=$3 [QSA]
+RewriteRule ^([a-zA-Z]{2}+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ index.php?lang=$1&p=$2&id=$3 [QSA]
+
+RewriteRule ^([a-zA-Z]{2}+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?lang=$1&p=$2&cat=$3&id=$4 [QSA]
+RewriteRule ^([a-zA-Z]{2}+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ index.php?lang=$1&p=$2&cat=$3&id=$4 [QSA]
+
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/page-([0-9]+)$ index.php?p=$1&id=$2&pag=$3 [QSA]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/page-([0-9]+)/$ index.php?p=$1&id=$2&pag=$3 [QSA]
+
+RewriteRule ^([a-zA-Z]{2}+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/page-([0-9]+)$ index.php?lang=$1&p=$2&id=$3&pag=$4 [QSA]
+RewriteRule ^([a-zA-Z]{2}+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/page-([0-9]+)/$ index.php?lang=$1&p=$2&id=$3&pag=$4 [QSA]
+
+<Files .htaccess>
+    order allow,deny
+    deny from all
+</Files>
